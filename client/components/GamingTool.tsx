@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { Button } from './ui/button';
-import { Switch } from './ui/switch';
-import { Slider } from './ui/slider';
-import { Input } from './ui/input';
-import { Label } from './ui/label';
-import { Card } from './ui/card';
-import { ChevronDown, ChevronUp, X, Minus } from 'lucide-react';
+import React, { useState } from "react";
+import { Button } from "./ui/button";
+import { Switch } from "./ui/switch";
+import { Slider } from "./ui/slider";
+import { Input } from "./ui/input";
+import { Label } from "./ui/label";
+import { Card } from "./ui/card";
+import { ChevronDown, ChevronUp, X, Minus } from "lucide-react";
 
 interface AimbotSettings {
   enabled: boolean;
@@ -18,7 +18,7 @@ interface AimbotSettings {
 }
 
 export function GamingTool() {
-  const [selectedTab, setSelectedTab] = useState('Aimbot');
+  const [selectedTab, setSelectedTab] = useState("Aimbot");
   const [fps, setFps] = useState([75]);
   const [fovRange, setFovRange] = useState([45]);
   const [screenshotExpanded, setScreenshotExpanded] = useState(true);
@@ -26,48 +26,42 @@ export function GamingTool() {
 
   const [aimbot1, setAimbot1] = useState<AimbotSettings>({
     enabled: true,
-    key: '[VK_06]',
-    headOffset: 0.20,
+    key: "[VK_06]",
+    headOffset: 0.2,
     useBezier: true,
     steps: 5,
     speedX: 5,
-    speedY: 0.53
+    speedY: 0.53,
   });
 
   const [aimbot2, setAimbot2] = useState<AimbotSettings>({
     enabled: false,
-    key: '[VK_01]',
+    key: "[VK_01]",
     headOffset: 0.35,
     useBezier: true,
     steps: 10,
     speedX: 10,
-    speedY: 1.10
+    speedY: 1.1,
   });
 
   const [aimbot3, setAimbot3] = useState<AimbotSettings>({
     enabled: false,
-    key: '[ALT]',
+    key: "[ALT]",
     headOffset: 0.19,
     useBezier: true,
-    steps: 2.00,
-    speedX: 2.00,
-    speedY: 2.00
+    steps: 2.0,
+    speedX: 2.0,
+    speedY: 2.0,
   });
 
-  const sidebarItems = [
-    'Aimbot',
-    'Triggerbot',
-    'Hardware',
-    'UI',
-    'Log'
-  ];
+  const sidebarItems = ["Aimbot", "Triggerbot", "Hardware", "UI", "Log"];
 
-  const AimbotSection = ({ 
-    title, 
-    settings, 
-    onSettingsChange, 
-    keyColor = 'text-gaming-green' 
-  }: { 
+  const AimbotSection = ({
+    title,
+    settings,
+    onSettingsChange,
+    keyColor = "text-gaming-green",
+  }: {
     title: string;
     settings: AimbotSettings;
     onSettingsChange: (settings: AimbotSettings) => void;
@@ -75,12 +69,14 @@ export function GamingTool() {
   }) => (
     <div className="space-y-3">
       <div className="text-white font-medium">{title}:</div>
-      
+
       <div className="grid grid-cols-2 items-center gap-4">
         <div className="flex items-center space-x-2">
-          <Switch 
+          <Switch
             checked={settings.enabled}
-            onCheckedChange={(enabled) => onSettingsChange({...settings, enabled})}
+            onCheckedChange={(enabled) =>
+              onSettingsChange({ ...settings, enabled })
+            }
           />
           <span className="text-white">Enable</span>
         </div>
@@ -89,8 +85,13 @@ export function GamingTool() {
       <div className="grid grid-cols-2 items-center gap-4">
         <span className="text-gaming-text-muted">Key</span>
         <div className="flex items-center space-x-2">
-          <span className={`${keyColor} font-mono text-sm`}>{settings.key}</span>
-          <Button size="sm" className="bg-gaming-blue hover:bg-gaming-blue-light">
+          <span className={`${keyColor} font-mono text-sm`}>
+            {settings.key}
+          </span>
+          <Button
+            size="sm"
+            className="bg-gaming-blue hover:bg-gaming-blue-light"
+          >
             Set Key
           </Button>
         </div>
@@ -101,25 +102,33 @@ export function GamingTool() {
         <div className="flex-1">
           <Slider
             value={[settings.headOffset]}
-            onValueChange={([headOffset]) => onSettingsChange({...settings, headOffset})}
+            onValueChange={([headOffset]) =>
+              onSettingsChange({ ...settings, headOffset })
+            }
             max={1}
             min={0.01}
             step={0.01}
             className="w-full"
           />
-          <div className="text-white text-center text-sm mt-1">{settings.headOffset.toFixed(2)}</div>
+          <div className="text-white text-center text-sm mt-1">
+            {settings.headOffset.toFixed(2)}
+          </div>
         </div>
       </div>
 
       <div className="grid grid-cols-2 items-center gap-4">
         <div className="flex items-center space-x-2">
-          <Switch 
+          <Switch
             checked={settings.useBezier}
-            onCheckedChange={(useBezier) => onSettingsChange({...settings, useBezier})}
+            onCheckedChange={(useBezier) =>
+              onSettingsChange({ ...settings, useBezier })
+            }
           />
           <span className="text-white">Use Bezier</span>
         </div>
-        <span className="text-white text-right">{settings.headOffset.toFixed(2)}</span>
+        <span className="text-white text-right">
+          {settings.headOffset.toFixed(2)}
+        </span>
       </div>
 
       <div className="grid grid-cols-2 items-center gap-4">
@@ -127,13 +136,17 @@ export function GamingTool() {
         <div className="flex-1">
           <Slider
             value={[settings.steps]}
-            onValueChange={([steps]) => onSettingsChange({...settings, steps})}
+            onValueChange={([steps]) =>
+              onSettingsChange({ ...settings, steps })
+            }
             max={20}
             min={1}
             step={1}
             className="w-full"
           />
-          <div className="text-white text-center text-sm mt-1">{settings.steps}</div>
+          <div className="text-white text-center text-sm mt-1">
+            {settings.steps}
+          </div>
         </div>
       </div>
 
@@ -142,13 +155,17 @@ export function GamingTool() {
         <div className="flex-1">
           <Slider
             value={[settings.speedX]}
-            onValueChange={([speedX]) => onSettingsChange({...settings, speedX})}
+            onValueChange={([speedX]) =>
+              onSettingsChange({ ...settings, speedX })
+            }
             max={20}
             min={0}
             step={0.1}
             className="w-full"
           />
-          <div className="text-white text-center text-sm mt-1">{settings.speedX.toFixed(1)}</div>
+          <div className="text-white text-center text-sm mt-1">
+            {settings.speedX.toFixed(1)}
+          </div>
         </div>
       </div>
 
@@ -157,13 +174,17 @@ export function GamingTool() {
         <div className="flex-1">
           <Slider
             value={[settings.speedY]}
-            onValueChange={([speedY]) => onSettingsChange({...settings, speedY})}
+            onValueChange={([speedY]) =>
+              onSettingsChange({ ...settings, speedY })
+            }
             max={5}
             min={0}
             step={0.01}
             className="w-full"
           />
-          <div className="text-white text-center text-sm mt-1">{settings.speedY.toFixed(2)}</div>
+          <div className="text-white text-center text-sm mt-1">
+            {settings.speedY.toFixed(2)}
+          </div>
         </div>
       </div>
     </div>
@@ -174,8 +195,10 @@ export function GamingTool() {
       {/* Sidebar */}
       <div className="w-48 bg-gaming-darker border-r border-gaming-blue/20">
         <div className="p-4">
-          <h2 className="text-2xl font-bold text-gaming-blue mb-6">CZN COLORBOT</h2>
-          
+          <h2 className="text-2xl font-bold text-gaming-blue mb-6">
+            CZN COLORBOT
+          </h2>
+
           <nav className="space-y-1">
             {sidebarItems.map((item) => (
               <button
@@ -183,8 +206,8 @@ export function GamingTool() {
                 onClick={() => setSelectedTab(item)}
                 className={`w-full text-left px-4 py-3 rounded transition-colors ${
                   selectedTab === item
-                    ? 'bg-gaming-blue text-white'
-                    : 'text-gaming-text-muted hover:bg-gaming-blue/20 hover:text-white'
+                    ? "bg-gaming-blue text-white"
+                    : "text-gaming-text-muted hover:bg-gaming-blue/20 hover:text-white"
                 }`}
               >
                 {item}
@@ -207,13 +230,16 @@ export function GamingTool() {
                 Hardware: <span className="text-gaming-green">Makcu</span>
               </div>
             </div>
-            <div className="text-gaming-blue font-semibold">CZN<br /></div>
+            <div className="text-gaming-blue font-semibold">
+              CZN
+              <br />
+            </div>
           </div>
         </div>
 
         {/* Content Area */}
         <div className="p-6 space-y-6">
-          {selectedTab === 'Aimbot' && (
+          {selectedTab === "Aimbot" && (
             <>
               {/* Screenshot Settings */}
               <Card className="bg-gaming-darker border-gaming-blue/20">
@@ -228,10 +254,12 @@ export function GamingTool() {
                       ) : (
                         <ChevronUp className="h-4 w-4 text-gaming-blue" />
                       )}
-                      <span className="text-white font-medium">Screenshot Settings</span>
+                      <span className="text-white font-medium">
+                        Screenshot Settings
+                      </span>
                     </div>
                   </button>
-                  
+
                   {screenshotExpanded && (
                     <div className="mt-4 space-y-4">
                       <div className="grid grid-cols-2 items-center gap-4">
@@ -245,12 +273,16 @@ export function GamingTool() {
                             step={1}
                             className="w-full"
                           />
-                          <div className="text-white text-center text-sm mt-1">{fps[0]} FPS</div>
+                          <div className="text-white text-center text-sm mt-1">
+                            {fps[0]} FPS
+                          </div>
                         </div>
                       </div>
 
                       <div className="grid grid-cols-2 items-center gap-4">
-                        <span className="text-gaming-text-muted">FOV Range</span>
+                        <span className="text-gaming-text-muted">
+                          FOV Range
+                        </span>
                         <div className="flex-1">
                           <Slider
                             value={fovRange}
@@ -260,7 +292,9 @@ export function GamingTool() {
                             step={1}
                             className="w-full"
                           />
-                          <div className="text-white text-center text-sm mt-1">{fovRange[0]}</div>
+                          <div className="text-white text-center text-sm mt-1">
+                            {fovRange[0]}
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -281,10 +315,12 @@ export function GamingTool() {
                       ) : (
                         <ChevronUp className="h-4 w-4 text-gaming-blue" />
                       )}
-                      <span className="text-white font-medium">Aimbot Hotkeys & Speeds</span>
+                      <span className="text-white font-medium">
+                        Aimbot Hotkeys & Speeds
+                      </span>
                     </div>
                   </button>
-                  
+
                   {aimbotExpanded && (
                     <div className="space-y-6">
                       <AimbotSection
@@ -300,11 +336,16 @@ export function GamingTool() {
             </>
           )}
 
-          {selectedTab !== 'Aimbot' && (
+          {selectedTab !== "Aimbot" && (
             <Card className="bg-gaming-darker border-gaming-blue/20">
               <div className="p-8 text-center">
-                <h3 className="text-xl font-semibold text-white mb-2">{selectedTab} Settings</h3>
-                <p className="text-gaming-text-muted">Configuration options for {selectedTab} will be displayed here.</p>
+                <h3 className="text-xl font-semibold text-white mb-2">
+                  {selectedTab} Settings
+                </h3>
+                <p className="text-gaming-text-muted">
+                  Configuration options for {selectedTab} will be displayed
+                  here.
+                </p>
               </div>
             </Card>
           )}
