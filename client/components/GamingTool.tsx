@@ -98,7 +98,17 @@ export function GamingTool() {
 
       <div className="grid grid-cols-2 items-center gap-4">
         <span className="text-gaming-text-muted">Head Offset</span>
-        <span className="text-white text-right">{settings.headOffset.toFixed(2)}</span>
+        <div className="flex-1">
+          <Slider
+            value={[settings.headOffset]}
+            onValueChange={([headOffset]) => onSettingsChange({...settings, headOffset})}
+            max={1}
+            min={0.01}
+            step={0.01}
+            className="w-full"
+          />
+          <div className="text-white text-center text-sm mt-1">{settings.headOffset.toFixed(2)}</div>
+        </div>
       </div>
 
       <div className="grid grid-cols-2 items-center gap-4">
