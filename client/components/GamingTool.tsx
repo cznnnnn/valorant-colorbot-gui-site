@@ -57,7 +57,6 @@ export function GamingTool() {
   const sidebarItems = [
     'Aimbot',
     'Triggerbot',
-    'Silentbot',
     'Hardware',
     'UI',
     'Log'
@@ -165,7 +164,7 @@ export function GamingTool() {
       {/* Sidebar */}
       <div className="w-48 bg-gaming-darker border-r border-gaming-blue/20">
         <div className="p-4">
-          <h2 className="text-2xl font-bold text-gaming-blue mb-6">NOMAY</h2>
+          <h2 className="text-2xl font-bold text-gaming-blue mb-6">CZN COLORBOT</h2>
           
           <nav className="space-y-1">
             {sidebarItems.map((item) => (
@@ -186,29 +185,7 @@ export function GamingTool() {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 bg-gaming-dark">
-        {/* Top Bar */}
-        <div className="bg-gaming-darker border-b border-gaming-blue/20 p-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-6">
-              <div className="text-gaming-text-muted">Convert</div>
-              <div className="text-gaming-text-muted">Compress</div>
-              <div className="text-gaming-text-muted">Tools</div>
-              <div className="text-gaming-text-muted">API</div>
-              <div className="text-gaming-text-muted">Pricing</div>
-            </div>
-            
-            <div className="flex items-center space-x-2">
-              <Button size="sm" variant="ghost">
-                <Minus className="h-4 w-4" />
-              </Button>
-              <Button size="sm" variant="ghost">
-                <X className="h-4 w-4" />
-              </Button>
-            </div>
-          </div>
-        </div>
-
+      <div className="flex-1 bg-gaming-dark mb-44">
         {/* Game Info Bar */}
         <div className="bg-gaming-darker border-b border-gaming-blue/20 p-4">
           <div className="flex items-center justify-between">
@@ -220,7 +197,7 @@ export function GamingTool() {
                 Hardware: <span className="text-gaming-green">Makcu</span>
               </div>
             </div>
-            <div className="text-gaming-blue font-semibold">Valorant-Purple</div>
+            <div className="text-gaming-blue font-semibold">CZN<br /></div>
           </div>
         </div>
 
@@ -304,24 +281,6 @@ export function GamingTool() {
                         title="Aimbot 1"
                         settings={aimbot1}
                         onSettingsChange={setAimbot1}
-                        keyColor="text-gaming-green"
-                      />
-                      
-                      <hr className="border-gaming-blue/20" />
-                      
-                      <AimbotSection
-                        title="Aimbot 2"
-                        settings={aimbot2}
-                        onSettingsChange={setAimbot2}
-                        keyColor="text-gaming-green"
-                      />
-                      
-                      <hr className="border-gaming-blue/20" />
-                      
-                      <AimbotSection
-                        title="Aimbot 3"
-                        settings={aimbot3}
-                        onSettingsChange={setAimbot3}
                         keyColor="text-gaming-green"
                       />
                     </div>
